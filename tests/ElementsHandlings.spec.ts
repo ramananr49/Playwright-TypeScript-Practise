@@ -30,7 +30,7 @@ test("Handling Elements related scenario in PW_TS", async ({page}, testInfo) => 
 
     const all_links = [];
     const titles = [];
-    const datas: {title:string; link:string } = {};
+    const datas: Record<string, string> = {};
 
     for (let i=0; i<parseInt(repos); i++) {
         if (i === 10) {
@@ -46,13 +46,18 @@ test("Handling Elements related scenario in PW_TS", async ({page}, testInfo) => 
             await all_links.push(urls);
             const titletext = await links.nth(j).textContent();
             titles.push(titletext);
-            datas[titletext] = urls;
+            if (titletext && urls){
+                datas[titletext] = urls;
+            }
+            
         } else {
             const urls = await links.nth(i).getAttribute('href');
             await all_links.push(urls);
             const titletext = await links.nth(i).textContent();
             titles.push(titletext);
-            datas[titletext] = urls;
+            if (titletext && urls){
+                datas[titletext] = urls;
+            }
         }
         
     }
