@@ -1,6 +1,6 @@
 import { expect, test, Page, TestInfo } from "@playwright/test";
 
-test("Handling Window related scenario in PW_TS", async ({page}, testInfo) => {
+test("Handling Drag related scenario in PW_TS", async ({page}, testInfo) => {
     await page.goto('https://letcode.in/');
     await page.locator('a[id="testing"][href="/test"]').click();
     await expect(page.locator('//p[contains(@class, "card-header-title") and normalize-space()="Drag"]')).toBeVisible();
