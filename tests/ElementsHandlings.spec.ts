@@ -17,7 +17,7 @@ test("Handling Elements related scenario in PW_TS", async ({page}, testInfo) => 
     console.log(user_Name);
     await expect(user_Name).toEqual('rama');
 
-    const repos = await page.locator('//*[@class="heading"]/following-sibling::p[contains(@class,"title")]').nth(0).textContent();
+    const repos = await page.locator('//*[@class="heading"]/following-sibling::p[contains(@class,"title")]').nth(0).textContent() ?? "0";
     const gists = await page.locator('//*[@class="heading"]/following-sibling::p[contains(@class,"title")]').nth(1).textContent();
     const folllowers = await page.locator('//*[@class="heading"]/following-sibling::p[contains(@class,"title")]').nth(2).textContent();
     console.log(repos);
