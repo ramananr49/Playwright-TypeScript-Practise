@@ -1,5 +1,4 @@
 import { expect, test, Page, TestInfo } from "@playwright/test";
-import { before } from "node:test";
 
 test("Handling Simple Table Scenario in PW_TS", async ({page}, testInfo) => {
     await page.goto('https://letcode.in/');
